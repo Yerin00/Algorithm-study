@@ -9,24 +9,23 @@ n, m, k = map(int, input().split())
 data = list(map(int, input().split()))
 sum = 0
 
-data.sort()
+data.sort() # sort(reverse=True)
 
-# 답안1. 무식하게 찾기________________________________________
+## 답안 예시1. 무식하게 찾기________________________________________
 while True:
     for i in range(k):
-        if(m == 0):
+        if (m == 0):
             break
-        sum += data[n-1]
+        sum += data[n - 1]
         m -= 1
     if m == 0:
         break
-    sum += data[n-2]
+    sum += data[n - 2]
     m -= 1
 
 print(sum)
 
-
-# 답안2. 패턴 찾기 [hint: (k+1)개씩 반복됨]___________________
+## 답안 예시2. 패턴 찾기 [hint: (k+1)개씩 반복됨]___________________
 # 가장 큰 수가 더해지는 횟수
 # count1 = (m // (k+1)) * k
 # count1 += m % (k+1)
@@ -36,7 +35,7 @@ print(sum)
 # sum = data[n-1] * count1 + data[n-2] * count2
 # print(sum)
 
-# 오답 과정__________________________________________________
+## 오답노트__________________________________________________
 # sum=0
 # index = 0
 # count = m
@@ -50,6 +49,5 @@ print(sum)
 #     else:
 #         sum += data[0] * count
 #         count -= count
-
 
 # print("큰 수의 합: ",sum)
