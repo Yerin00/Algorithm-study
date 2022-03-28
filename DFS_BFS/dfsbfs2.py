@@ -1,46 +1,46 @@
 # 미로 탈출 | 실전문제 | 난이도★1.5
 from collections import deque
 ## 오답노트
-# n, m = map(int, input().split())
+n, m = map(int, input().split())
 
-# graph = []
-# for i in range(n):
-#   graph.append(list(map(int, input())))
+graph = []
+for i in range(n):
+  graph.append(list(map(int, input())))
 
-# # 상, 하, 좌, 우
-# dx = [-1, 1, 0, 0]
-# dy = [0, 0, -1, 1]
+# 상, 하, 좌, 우
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
-# # BFS 정의
-# def bfs(graph, x, y, visited):
-#   queue = deque((x, y)) # 시작 위치 삽입
-#   visited[x][y] = True # 첫번째 방문처리
-#   result = 0 # 이동거리
-#   # queue가 빌때까지
-#   while queue:
-#     # pop
-#     x, y = queue.popleft()
-#     # 네 방향 확인, 1이면 큐에 삽입
-#     count = 0 # 네 방향 확인용
-#     for i in range(4):
-#       nx = x + dx[i]
-#       ny = y + dy[i]
-#       # 방문가능
-#       if graph[nx][ny] == 1:
-#         visited[nx][ny] = True # 방문처리
-#         graph.append((nx, ny))
-#         result += 1
-#         count += 1
-#       # 네방향 모두 확인, 갈 수 있는 곳x
-#       if count == 4:
-#         '''
-# BFS는 DFS처럼 한 갈래로 쭉쭉 가는게 아님. 재귀처럼 왔던길로 돌아 갈수 있는 것도 아님. 가까운 곳부터 queue에서 pop에서 세력을 넓혀나가듯 탐색하는 방법으로 갈라져 나온 곳으로 돌아가야하는데 result를 뺄수있는 방법이없음, 즉 잘못된 접근방법임..
-#           '''
+# BFS 정의
+def bfs(graph, x, y, visited):
+  queue = deque((x, y)) # 시작 위치 삽입
+  visited[x][y] = True # 첫번째 방문처리
+  result = 0 # 이동거리
+  # queue가 빌때까지
+  while queue:
+    # pop
+    x, y = queue.popleft()
+    # 네 방향 확인, 1이면 큐에 삽입
+    count = 0 # 네 방향 확인용
+    for i in range(4):
+      nx = x + dx[i]
+      ny = y + dy[i]
+      # 방문가능
+      if graph[nx][ny] == 1:
+        visited[nx][ny] = True # 방문처리
+        graph.append((nx, ny))
+        result += 1
+        count += 1
+      # 네방향 모두 확인, 갈 수 있는 곳x
+      if count == 4:
+        '''
+BFS는 DFS처럼 한 갈래로 쭉쭉 가는게 아님. 재귀처럼 왔던길로 돌아 갈수 있는 것도 아님. 가까운 곳부터 queue에서 pop에서 세력을 넓혀나가듯 탐색하는 방법으로 갈라져 나온 곳으로 돌아가야하는데 result를 뺄수있는 방법이없음, 즉 잘못된 접근방법임..
+          '''
 
-#   return result
+  return result
   
-# visitied = [False] * 9
-# bfs(graph, 0, 0, visited)
+visitied = [False] * 9
+bfs(graph, 0, 0, visited)
 
 ## 답안예시_________________________________________________________
 '''
