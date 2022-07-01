@@ -46,7 +46,7 @@
 ## 답안예시1.___________________________________________________
 n = int(input())
 k = int(input())
-data = [[0]*(n+1) for _ in range(n+1)] # 맵 정보
+data = [[0] * (n+1) for _ in range(n+1)] # 맵 정보
 info = [] # 방향 회전 정보
 
 # 맵 정보(사과 있는 곳 1)
@@ -55,10 +55,10 @@ for _ in range(k):
   data[a][b] = 1
 
 # 방향 회전 정보 입력
-l = int(input)
+l = int(input())
 for _ in range(l):
   x, c = input().split()
-  info.append(int(x),c))
+  info.append((int(x), c))
 
 # 처음에 오른쪽을 보고 있으므로 동, 남, 서, 북 ★
 dx = [0, 1, 0, -1]
@@ -71,7 +71,7 @@ def turn(direction, c):
     direction = (direction + 1) % 4
   return direction
 
-def simulate:
+def simulate():
   x, y = 1, 1 # 뱀의 머리위치
   data[x][y] = 2 # 뱀이 존재하는 위치는 2로 표시
   direction = 0 # 동쪽
@@ -89,15 +89,20 @@ def simulate:
         q.append((nx,ny)) # 머리의 다음 좌표 추가
         px, py = q.pop(0) # 꼬리쪽 좌표 pop
         data[px][py] = 0 # 꼬리 제거
-      # 벽이나 뱀의 몸통과 부딪혔다면
-      else:
-        time += 1
-        break
-      x, y = nx, ny # 다음위치로 머리 이동
+      #사과가 있다면 이동 후 꼬리 그대로 두기
+      if data[nx][ny] == 1: 
+        data[nx][ny] = 2
+        q.append((nx, ny))
+    # 벽이나 뱀의 몸통과 부딪혔다면
+    else:
       time += 1
-      if index < 1 and time == info[index][0]: # 회전할 시간인 경우 회전
-        direction = turn(direction, info[index][1])
-        index += 1
+      break
+    x, y = nx, ny # 다음위치로 머리 이동
+    time += 1
+    if index < l and time == info[index][0]: # 회전할 시간인 경우 회전
+      direction = turn(direction, info[index][1])
+      index += 1
+      print("turn() 실행:",direction, index)
   return time
 
 print(simulate())

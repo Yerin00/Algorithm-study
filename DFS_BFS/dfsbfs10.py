@@ -6,43 +6,43 @@
 '''
 ## 내 답안____________________________________________________________
 # 네가지 방향(북, 동, 남, 서)
-dx = [-1, 0, 1, 0]
-dy = [0, 1, 0, -1]
+# dx = [-1, 0, 1, 0]
+# dy = [0, 1, 0, -1]
 
-# 한칸 이동 함수
-def move(t, x1, y1, x2, y2):
-    for i in range(4):
-      nx1 = x1 + dx[i]
-      ny1 = y1 + dy[i]
-      nx2 = x2 + dx[i]
-      ny2 = y2 + dy[i]
-      # 이동 가능한 범위가 아니면 continue
-      if nx1 <= -1 or n <= nx1 or ny1 <= -1 or n <= ny1
-        or nx2 <= -1 or n <= nx2 or ny2 <= -1 or n <= ny2:
-        continue
-      # 두칸 다 빈칸이면
-      if board[nx1][ny1] == 0 and board[nx2][ny2] == 0:
-        move(t+1, nx1, ny1, nx2, ny2)
-      # 벽이면 이동하지않고 회전
-      else:
-        rotate(t+1, x1, y1, x2, y2)
+# # 한칸 이동 함수
+# def move(t, x1, y1, x2, y2):
+#     for i in range(4):
+#       nx1 = x1 + dx[i]
+#       ny1 = y1 + dy[i]
+#       nx2 = x2 + dx[i]
+#       ny2 = y2 + dy[i]
+#       # 이동 가능한 범위가 아니면 continue
+#       if nx1 <= -1 or n <= nx1 or ny1 <= -1 or n <= ny1
+#         or nx2 <= -1 or n <= nx2 or ny2 <= -1 or n <= ny2:
+#         continue
+#       # 두칸 다 빈칸이면
+#       if board[nx1][ny1] == 0 and board[nx2][ny2] == 0:
+#         move(t+1, nx1, ny1, nx2, ny2)
+#       # 벽이면 이동하지않고 회전
+#       else:
+#         rotate(t+1, x1, y1, x2, y2)
 
-# 회전 함수
-def rotate(t, x1, y1, x2, y2):
-  # 가로일 때, 위로 회전
-  # 가로일 때, 아래로 회전
-  # 세로일 때, 오른쪽 회전
-  # 세로일 때, 왼쪽 회전
-  return True
+# # 회전 함수
+# def rotate(t, x1, y1, x2, y2):
+#   # 가로일 때, 위로 회전
+#   # 가로일 때, 아래로 회전
+#   # 세로일 때, 오른쪽 회전
+#   # 세로일 때, 왼쪽 회전
+#   return True
 
 
-def solution(board):
-    # 로봇이 (N, N)에 도달했으면 시간 반환
-    if (x1 == n - 1 and y1 == n - 1) or (x2 == n - 1 and y2 == n - 1):
-      return t
-    # 아니면 이동
-    else:
-      move(t, x1, y1, x2, y2)
+# def solution(board):
+#     # 로봇이 (N, N)에 도달했으면 시간 반환
+#     if (x1 == n - 1 and y1 == n - 1) or (x2 == n - 1 and y2 == n - 1):
+#       return t
+#     # 아니면 이동
+#     else:
+#       move(t, x1, y1, x2, y2)
         
 
 # result = 7

@@ -59,7 +59,7 @@ def get_sum(candidate):
   result = 0
   # 모든 집에 대하여
   for hx, hy in house:
-    # 가장 가까운 집 찾기
+    # 가장 가까운 치킨집 찾기
     temp = 1e9
     for cx, cy in candidate:
       temp = min(temp, abs(hx-cx) + abs(hy-cy))

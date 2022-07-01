@@ -76,7 +76,7 @@ def bfs(x, y):
       # 벽인 경우 무시, 이게 왜 꼭 있어야할까
       if graph[nx][ny] == 0:
         continue 
-      if graph[nx][ny]==1:
+      if graph[nx][ny]== 1:
         graph[nx][ny] = graph[x][y] + 1 # 방문처리
         queue.append((nx, ny)) # 큐에 삽입
 
